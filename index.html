@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Working with Javascript loops</title>
+</head>
+<body>
+    <section class="container">
+        <h1>Find the sum of numbers</h1><br>
+        <button id="btn1" class="btn btn-primary">The sum of numbers</button><br><br>
+        <button id="btn2" class="btn btn-success">The sum of multiples of 3 and 5</button><br><br>
+        <button id="btn3" class="btn btn-secondary">The sum or product of numbers</button><br><br>
+        <button id="btn4" class="btn btn-danger">The multiplication table of a number</button><br><br>
+        <button id="btn5" class="btn btn-warning">Prime Numbers</button><br><br>
+        <button id="btn6" class="btn btn-primary">leap years</button><br><br>
+    </section>
+
+
+    <script>
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+        let btn3 = document.getElementById("btn3");
+        let btn4 = document.getElementById("btn4");
+        let btn5 = document.getElementById("btn5");
+        let btn6 = document.getElementById("btn6");
+
+        btn1.addEventListener("click", sumNum1);
+        btn2.addEventListener("click", sumNum2);
+        btn3.addEventListener("click", sumNum3);
+        btn4.addEventListener("click", sumNum4);
+        btn5.addEventListener("click", prime);
+        btn6.addEventListener("click", leapYear);
+
+        function sumNum1(){
+          let num1 = parseInt(prompt("Please enter an interger: "));
+          let sum = 0;
+          
+          for (let i = 1; i <= num1; i++){
+                sum += i;
+            }
+
+            document.write(`The sum of numbers from 1 to ${num1} is ${sum}`);
+        }
+
+        function sumNum2(){
+          let num1 = parseInt(prompt("Please enter an interger: "));
+          let sum = 0;
+          
+          for (let i = 1; i <= num1; i++){
+              if (i % 3 == 0 || i % 5 == 0) {
+                    sum += i;
+              }
+                
+            }
+
+            document.write(`The sum of numbers between 1 and ${num1} that are divsible by 3 and 5 is ${sum}`);
+        }
+
+        function sumNum3(){
+
+            let num = parseInt(prompt("please enter 1 to calculate the sum of numbers or enter 2 to calculate the products: "));
+
+            if (num = 1) {
+                let num1 = parseInt(prompt("Please enter an interger to sum from 1 to that number: "));
+                let sum = 0;
+                let sum2 = 1;
+                for (let i = 1; i <= num1; i++){
+                    sum += i;
+                }
+
+                document.write(`The sum of numbers from 1 to ${num1} is ${sum}`);
+                    
+            }else if (num = 2) {
+                let num2 = parseInt(prompt("please enter"))
+                let sum2 = 1;
+                for(let i = 1; i <= num1; i++){
+                    sum2 *= i;
+                }
+
+                document.write(`The product from 1 to ${num2} is ${sum2}`);
+
+            }else {
+                alert("please pick either 1 or 2")
+            }    
+
+        }
+
+        
+
+
+        function sumNum4(){
+            let num1 = parseInt(prompt("Please enter an interger: "));
+            document.write(`Multiples of ${num1} is: <br>`)
+            for (let i = 1; i <= 12; i++){
+                product = num1 * i;
+
+                document.write(`${num1} * ${i} = ${product} <br>`) ;
+            }
+
+            
+        } 
+
+        function prime() {
+
+            let num1 = parseInt(prompt("Please enter an interger: "))
+
+                for ( let i = 2; i <= num1; i++ ) {
+                    
+                if ( num1 % i === 0 ) {
+                    return false;
+                }
+            }
+            return true;
+
+            document.write(num1);
+        }
+
+                
+
+
+        function leapYear() {
+            let year = prompt("please input a year to find out the next 20 years");
+
+            let counter = 20;
+            let result = true;
+
+            while (counter >= 0) {
+
+                if ((year % 4 == 0) && (year % 100 != 0)||(year % 400 == 0)) {
+                    result = true;
+                    year++;
+                    counter--;
+                } 
+                else {
+                year++;
+                }    
+            }
+
+            document.write(year);
+        }
+
+        
+
+    </script>
+</body>
+</html>
